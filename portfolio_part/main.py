@@ -1,5 +1,6 @@
 import csv
 import datetime
+import itertools
 
 from constants import AssetData, DATE_FORMAT, DATE_END, DATE_START
 from asset import Asset
@@ -42,3 +43,11 @@ def create_assets():
 if __name__ == "__main__":
     # create the assets
     assets = create_assets()
+    
+    # creating portfolios
+    portfolios = []
+    for asset in AssetData.keys():
+        portfolios.extend([asset] * 5)
+        
+    for portfolio in itertools.combinations(portfolios, 5):
+        print(portfolio)
