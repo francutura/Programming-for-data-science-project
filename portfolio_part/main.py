@@ -38,16 +38,26 @@ def create_assets():
     return assets
 
 
-#def fix_missing_data(data, date_start, date_end):
+# def fix_missing_data(data, date_start, date_end):
 
 if __name__ == "__main__":
     # create the assets
     assets = create_assets()
-    
+
     # creating portfolios
     portfolios = []
+    combs = []
     for asset in AssetData.keys():
-        portfolios.extend([asset] * 5)
-        
-    for portfolio in itertools.combinations(portfolios, 5):
-        print(portfolio)
+        combs.extend([asset] * 5)
+
+    for comb in set(itertools.combinations(combs, 5)):
+        portfolio = dict(zip(AssetData.keys(), [0] * len(AssetData.keys())))
+        for ticker in comb:
+            portfolio[ticker] += 20
+        portfolios.append(portfolio)
+
+    # sub-task save portfolios
+    with open("./portfolio_allocations.csv", "w") as csvfile:
+        writer = csv.DictWriter(csvfile, AssetData.keys())
+        writer.writeheader()
+        writer.writerows(portfolios)
