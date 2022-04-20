@@ -1,6 +1,7 @@
 import csv
 import datetime
 import itertools
+import statistics
 
 from constants import AssetData, DATE_FORMAT, DATE_END, DATE_START
 from asset import Asset
@@ -59,5 +60,26 @@ if __name__ == "__main__":
     # sub-task save portfolios
     with open("./portfolio_allocations.csv", "w") as csvfile:
         writer = csv.DictWriter(csvfile, AssetData.keys())
+        writer.writeheader()
+        writer.writerows(portfolios)
+
+    # Compute return and volatility
+    for portfolio in portfolios:
+        portfolio["RETURN"] = sum(
+            [
+                assets[asset].return_ * (portfolio[asset] / 100)
+                for asset in AssetData.keys()
+            ]
+        )
+        portfolio["VOLAT"] = statistics.stdev(
+            [
+                assets[asset].volatility * (portfolio[asset] / 100)
+                for asset in AssetData.keys()
+            ]
+        )
+
+    # sub-task save portfolio metrics
+    with open("./portfolio_metrics.csv", "w") as csvfile:
+        writer = csv.DictWriter(csvfile, portfolios[0].keys())
         writer.writeheader()
         writer.writerows(portfolios)
