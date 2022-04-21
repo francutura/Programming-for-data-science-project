@@ -50,6 +50,7 @@ All the required libraries are in the requirements.txt file that can be installe
 pip install -r requirements.txt
 ```
 ## Finale expected structure
+
 ├── plots
 │   ├── return_histogram.jpg
 │   ├── return_volatility_overlap.jpg
