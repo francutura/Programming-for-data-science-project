@@ -1,3 +1,4 @@
+import os
 import statistics
 
 import matplotlib.pyplot as plt
@@ -6,8 +7,21 @@ import pandas as pd
 import scipy.stats as st
 import seaborn as sns
 
-from constants import (PORTFOLIO_ALLOCATIONS_PATH, PORTFOLIO_METRICS_PATH,
-                       AssetData)
+from constants import PORTFOLIO_ALLOCATIONS_PATH, PORTFOLIO_METRICS_PATH, AssetData
+
+
+def save_plot(filename):
+    """
+    Save a plot in the "plots/" directory with name "filename"
+    """
+    plt.title(filename.replace("_", " "))
+    plt.plot()
+    isExist = os.path.exists("./plots")
+    if not isExist:
+        # Create a PATH directory because it does not exist
+        os.makedirs("./plots")
+    plt.savefig("./plots/" + filename + ".jpg")
+    plt.close()
 
 
 def _return(row):
@@ -85,6 +99,7 @@ if __name__ == "__main__":
     # Taking into account ALL generated returns, does your team think it is more probable
     # to obtain a positive or negative return?
     sns.displot(portfolios_df, x="RETURN", binwidth=2, color="r")
+    save_plot("return_histogram")
     # calculating return confidence interval
     return_95confidence = st.t.interval(
         alpha=0.95,
@@ -101,6 +116,7 @@ if __name__ == "__main__":
     sns.regplot(
         data=portfolios_df, x="VOLAT", y="RETURN", line_kws={"color": "red"}, ax=ax1
     )
+    save_plot("return_vs_volatility")
     corr = st.pearsonr(portfolios_df.RETURN, portfolios_df.VOLAT)
     print(
         f"The correlation coefficient between portfolio return and volatility is {round(corr[0], 2)}\n"
@@ -132,5 +148,4 @@ if __name__ == "__main__":
     lns = plot_1 + plot_2
     labels = [l.get_label() for l in lns]
     plt.legend(lns, labels, loc=0)
-    plt.show()
-
+    save_plot("return_volatility_overlap")
