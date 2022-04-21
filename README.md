@@ -49,6 +49,30 @@ All the required libraries are in the requirements.txt file that can be installe
 ```
 pip install -r requirements.txt
 ```
+## Finale expected structure
+├── plots
+│   ├── return_histogram.jpg
+│   ├── return_volatility_overlap.jpg
+│   └── return_vs_volatility.jpg
+├── portfolio_part
+│   ├── asset.py
+│   ├── constants.py
+│   ├── main.py
+│   ├── portfolio_allocations.csv
+│   ├── portfolio_metrics.csv
+│   ├── portofolio_analysis.py
+│
+├── README.md
+├── requirements.txt
+└── scraper_part
+    ├── constants.py
+    ├── scraped_csvs
+    │   ├── amundi-msci-wrld-ae-c.csv
+    │   ├── db-x-trackers-ii-global-sovereign-5.csv
+    │   ├── ishares-global-corporate-bond-$.csv
+    │   ├── spdr-gold-trust.csv
+    │   └── usdollar.csv
+    └── scraper.py
 
 
 
