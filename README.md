@@ -34,16 +34,17 @@ This should create a CSV file portfolio_allocations.csv which contains the 127 p
 
 ### Data analysis
 
-For running the data analysis it is needed some libraries that will be included in the (matplotlib, pandas, numpy, seaborn, and scipy).  Please run the script as following
+For running the data analysis some libraries are needed such as (matplotlib, pandas, numpy, seaborn, and scipy).
+The script can be run as following
 
 ```
 python3 portfolio_part/portofolio_analysis.py
 ```
-This script will create the metrics, plots(saved under plots directory), statistics, and a CSV file called portfolio_metrics.csv which enriches the first CSV file with two additional columns RETURN and VOLAT corresponding to the return and volatility of a given portfolio allocation.
+This script will create the metrics, plots(save them under `plots` directory), statistics, and a CSV file called portfolio_metrics.csv which enriches the first CSV file with two additional columns RETURN and VOLAT corresponding to the return and volatility of a given portfolio allocation.
 
 ## Requirement
 
-All the required libraries are in the requirements.txt file that can be run using
+All the required libraries are in the requirements.txt file that can be installed using
 
 ```
 pip install -r requirements.txt
