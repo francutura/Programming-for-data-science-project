@@ -76,6 +76,9 @@ if __name__ == "__main__":
     portfolio_volatility = portfolios_df.apply(_volatility, axis=1)
     portfolios_df["RETURN"] = portfolio_return
     portfolios_df["VOLAT"] = portfolio_volatility
+    # save the metrics
+    portfolios_df.to_csv(PORTFOLIO_METRICS_PATH)
+
     # Plotting
     # Use seaborn style defaults and set the default figure size
     sns.set(rc={"figure.figsize": (15, 4)})
@@ -131,5 +134,4 @@ if __name__ == "__main__":
     labels = [l.get_label() for l in lns]
     plt.legend(lns, labels, loc=0)
     plt.show()
-    # save the metrics
-    portfolios_df.to_csv(PORTFOLIO_METRICS_PATH)
+
