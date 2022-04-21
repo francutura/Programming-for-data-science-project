@@ -14,7 +14,7 @@ For the scraping part it is required to have the python package BeautifulSoup in
 pip3 install bs4
 ```
 
-You can run the scraper part of the task using.
+You can run the scraper part of the task from the root directory using.
 
 ```
 python3 scraper_part/scraper.py
@@ -24,7 +24,7 @@ This should create the scraped CSV files in the scraper_part directory.
 
 ### Second part
 
-For the portfolio generation part no additional dependencies are required apart from standard python packages. Please run the script as following
+For the portfolio generation part no additional dependencies are required apart from standard python packages. Please run the script from the root directory as following
 
 ```
 python3 portfolio_part/main.py
@@ -51,29 +51,29 @@ pip install -r requirements.txt
 ```
 ## Finale expected structure
 
-├── plots
-│   ├── return_histogram.jpg
-│   ├── return_volatility_overlap.jpg
-│   └── return_vs_volatility.jpg
-├── portfolio_part
-│   ├── asset.py
-│   ├── constants.py
-│   ├── main.py
-│   ├── portfolio_allocations.csv
-│   ├── portfolio_metrics.csv
-│   ├── portofolio_analysis.py
-│
-├── README.md
-├── requirements.txt
-└── scraper_part
-    ├── constants.py
-    ├── scraped_csvs
-    │   ├── amundi-msci-wrld-ae-c.csv
-    │   ├── db-x-trackers-ii-global-sovereign-5.csv
-    │   ├── ishares-global-corporate-bond-$.csv
-    │   ├── spdr-gold-trust.csv
-    │   └── usdollar.csv
-    └── scraper.py
+├── plots  
+│   ├── return_histogram.jpg  
+│   ├── return_volatility_overlap.jpg  
+│   └── return_vs_volatility.jpg  
+├── portfolio_part  
+│   ├── asset.py  
+│   ├── constants.py  
+│   ├── main.py  
+│   ├── portfolio_allocations.csv  
+│   ├── portfolio_metrics.csv  
+│   ├── portofolio_analysis.py  
+│  
+├── README.md  
+├── requirements.txt  
+└── scraper_part  
+    ├── constants.py  
+    ├── scraped_csvs  
+    │   ├── amundi-msci-wrld-ae-c.csv  
+    │   ├── db-x-trackers-ii-global-sovereign-5.csv  
+    │   ├── ishares-global-corporate-bond-$.csv  
+    │   ├── spdr-gold-trust.csv  
+    │   └── usdollar.csv  
+    └── scraper.py  
 
 ## Contributors
 
