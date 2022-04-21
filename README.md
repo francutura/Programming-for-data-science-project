@@ -75,6 +75,9 @@ pip install -r requirements.txt
     │   └── usdollar.csv
     └── scraper.py
 
+## Contributors
 
-
-
+- Aicha Cheridi
+- Fran Cutura
+- Igor Aradski
+- Iva Pezo
