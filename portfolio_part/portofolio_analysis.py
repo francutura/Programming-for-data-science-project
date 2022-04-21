@@ -6,8 +6,8 @@ import pandas as pd
 import scipy.stats as st
 import seaborn as sns
 
-
-from constants import AssetData, PORTFOLIO_ALLOCATIONS_PATH, PORTFOLIO_METRICS_PATH
+from constants import (PORTFOLIO_ALLOCATIONS_PATH, PORTFOLIO_METRICS_PATH,
+                       AssetData)
 
 
 def _return(row):
