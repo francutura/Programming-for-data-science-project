@@ -8,8 +8,6 @@ class Asset:
     def __init__(self, ticker, data):
         self.ticker = ticker
         self._data = data
-        self.return_ = self._return_()
-        self.volatility = self._volatility()
         self._fix_missing_data()
 
     def __repr__(self):
@@ -52,22 +50,6 @@ class Asset:
 
             curr_date += datetime.timedelta(days=1)
             i += 1
-
-    def _return_(self):
-        """Compute the ticker return.
-
-        Returns:
-            float: stock return
-        """
-        return ((self._data[-1][1] - self._data[0][1]) / self._data[0][1]) * 100
-
-    def _volatility(self):
-        """Compute the ticker volatility.
-
-        Returns:
-            float: volatility
-        """
-        return statistics.stdev([ele[1] for ele in self._data])
 
     def pretty_print_data(self):
         """Pretty print historical price data."""
