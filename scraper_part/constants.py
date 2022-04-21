@@ -13,7 +13,7 @@ HEADERS = {
     "Connection": "keep-alive",
 }
 
-OUTPUT_PATH = "./scraped_csvs"
+OUTPUT_PATH = "./scraper_part/scraped_csvs"
 CSV_COLUMNS = ["Date", "Price"]
 
 POST_HEADERS = {

@@ -3,7 +3,7 @@ import datetime
 
 from enum import Enum
 
-CSV_PATH = os.path.join("..", "scraper_part", "scraped_csvs")
+CSV_PATH = os.path.join("scraper_part", "scraped_csvs")
 
 DATE_FORMAT = "%b %d, %Y"
 
@@ -17,3 +17,6 @@ AssetData = {
     "GO": os.path.join(CSV_PATH, "spdr-gold-trust.csv"),
     "CA": os.path.join(CSV_PATH, "usdollar.csv"),
 }
+
+PORTFOLIO_ALLOCATIONS_PATH = "./portfolio_part/portfolio_allocations.csv"
+PORTFOLIO_METRICS_PATH = './portfolio_part/portfolio_metrics.csv'
