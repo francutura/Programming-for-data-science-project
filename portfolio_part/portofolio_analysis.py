@@ -5,8 +5,7 @@ import numpy as np
 import pandas as pd
 import scipy.stats as st
 import seaborn as sns
-from numpy import average
-from scipy.stats import pearsonr
+
 
 from constants import AssetData, PORTFOLIO_ALLOCATIONS_PATH, PORTFOLIO_METRICS_PATH
 
@@ -45,7 +44,7 @@ def _volatility(row):
             price = ro[f"{asset}_price"]
             daily.append(row[asset] * price * 0.01)
         values.append(sum(daily))
-    volatility = statistics.stdev(values) * 100 / average(values)
+    volatility = statistics.stdev(values) * 100 / np.average(values)
     return volatility
 
 
@@ -102,7 +101,7 @@ if __name__ == "__main__":
     sns.regplot(
         data=portfolios_df, x="VOLAT", y="RETURN", line_kws={"color": "red"}, ax=ax1
     )
-    corr = pearsonr(portfolios_df.RETURN, portfolios_df.VOLAT)
+    corr = st.pearsonr(portfolios_df.RETURN, portfolios_df.VOLAT)
     print(
         f"The correlation coefficient between portfolio return and volatility is {round(corr[0], 2)}\n"
     )
